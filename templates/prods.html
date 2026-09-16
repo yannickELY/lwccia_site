@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block title %}Beats — lwccia.{% endblock %}
+
+{% block content %}
+
+<section class="prods-header">
+    <h2>BEATS</h2>
+</section>
+
+<section class="leases">
+    <div class="lease-item">
+        <span class="lease-name">Basic Lease</span>
+        <span class="lease-format">MP3/WAV</span>
+    </div>
+    <div class="lease-separator"></div>
+    <div class="lease-item">
+        <span class="lease-name">Premium Lease</span>
+        <span class="lease-format">MP3/WAV/Stems</span>
+    </div>
+    <div class="lease-separator"></div>
+    <div class="lease-item">
+        <span class="lease-name">Exclusive Lease</span>
+        <span class="lease-format">MP3/WAV/Stems</span>
+    </div>
+</section>
+
+<section class="filters">
+    <div class="filter-group">
+        <span class="filter-label">Genre</span>
+        <select class="filter-select" id="genre-select">
+            <option value="all">All</option>
+            <option value="Supertrap">Supertrap</option>
+            <option value="Ambient">Ambient</option>
+            <option value="Plugg">Plugg/Pluggnb</option>
+            <option value="2Step">2Step</option>
+            <option value="R&B">R&B</option>
+            <option value="Bounce">Bounce</option>
+            <option value="Trap">Trap</option>
+        </select>
+    </div>
+
+    <div class="filter-group">
+        <span class="filter-label">Bpm</span>
+        <select class="filter-select" id="bpm-select">
+            <option value="all">All</option>
+            <option value="hundred_less">&lt; 100</option>
+            <option value="hundred">100 — 110</option>
+            <option value="hundred_ten">110 — 120</option>
+            <option value="hundred_twenty">120 — 130</option>
+            <option value="hundred_thirty">130 — 140</option>
+            <option value="hundred_forty">140 — 150</option>
+            <option value="hundred_fifty">150 — 160</option>
+            <option value="hundred_sixty">160 — 170</option>
+            <option value="hundred_seventy">170 — 180</option>
+            <option value="hundred_more">&gt; 180</option>
+        </select>
+    </div>
+</section>
+
+<section class="prods-list">
+    {% for prod in prods %}
+    <div class="prod-item"
+         data-genre="{{ prod['genre'] }}"
+         data-bpm="{{ prod['bpm'] }}">
+
+        <div class="prod-left">
+            <button class="play-btn" data-src="{{ url_for('static', filename='audio/' + prod['fichier_audio']) }}">
+                ▶
+            </button>
+            <div class="prod-info">
+                <span class="prod-titre">{{ prod['titre'] }}</span>
+                <span class="prod-meta">{{ prod['genre'] }} · {{ prod['bpm'] }} BPM</span>
+            </div>
+        </div>
+
+    <div class="prod-right">
+        <span class="prod-prix">{{ prod['prix'] }}€</span>
+        <a href="https://www.instagram.com/lwccia__/"
+        target="_blank"
+        class="prod-icon-btn">
+        <img src="{{ url_for('static', filename='images/instagram.svg') }}" alt="Instagram">
+        </a>
+        <a href="mailto:lwcciamusic@hotmail.com"
+        class="prod-icon-btn">
+        <img src="{{ url_for('static', filename='images/mail.svg') }}" alt="Mail">
+        </a>
+    </div>
+
+    </div>
+    {% endfor %}
+</section>
+
+<audio id="audio-player"></audio>
+
+{% endblock %}

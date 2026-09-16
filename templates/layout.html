@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}lwccia.{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <a href="{{ url_for('index' )}}">
+            <img src="{{ url_for('static', filename='images/lwccia.png') }}"
+                alt="lwccia logo"
+                class="logo">
+        </a>
+    </header>
+
+<nav>
+    <div class="nav-links">
+        <a href="{{ url_for('index') }}"
+           class="nav-link {% if request.endpoint == 'index' %}active{% endif %}">
+            _HOME
+        </a>
+        <a href="{{ url_for('prods') }}"
+           class="nav-link {% if request.endpoint == 'prods' %}active{% endif %}">
+            _BEATS
+        </a>
+        <a href="{{ url_for('videos') }}"
+           class="nav-link {% if request.endpoint == 'videos' %}active{% endif %}">
+            _VIDEOS
+        </a>
+        <a href="{{ url_for('contact') }}"
+           class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}">
+            _CONTACT
+        </a>
+    </div>
+</nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+        <div class="copyright-right">
+        © 2026, lwccia.
+        </div>
+
+        <footer>
+        <div class="footer-left">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/lwccia.png') }}"
+                    alt="lwccia logo"
+                    class="footer-logo">
+            </a>
+        </div>
+
+        <div class="footer-middle">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('prods') }}">Beats</a>
+            <a href="{{ url_for('videos') }}">Videos</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </div>
+
+        <div class="footer-right">
+            <a href="https://www.tiktok.com/@lwccia1" target="_blank" class="social-icon">
+                <img src="{{ url_for('static', filename='images/tiktok.svg') }}" alt="TikTok">
+            </a>
+            <a href="https://www.youtube.com/@lwccia" target="_blank" class="social-icon">
+                <img src="{{ url_for('static', filename='images/youtube.svg') }}" alt="YouTube">
+            </a>
+            <a href="https://soundcloud.com/lwccia" target="_blank" class="social-icon">
+                <img src="{{ url_for('static', filename='images/soundcloud.svg') }}" alt="SoundCloud">
+            </a>
+            <a href="https://www.instagram.com/lwccia__/" target="_blank" class="social-icon">
+                <img src="{{ url_for('static', filename='images/instagram.svg') }}" alt="Instagram">
+            </a>
+        </div>
+    </footer>
+
+
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

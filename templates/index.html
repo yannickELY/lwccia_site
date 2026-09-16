@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}lwccia.{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <img src="{{ url_for('static', filename='images/lwccia.png') }}"
+         alt="lwccia logo"
+         class="hero-logo">
+
+    <p class="hero-text">Producer and Audio Engineer based in France.</p>
+    <p class="hero-text">Ambient is all around us.</p>
+    <p class="hero-text">Here is the place to find my music.</p>
+
+</section>
+
+<a href="https://music.apple.com/fr/album/demain-sera-un-jour-meilleur-ep/1839620506" target="_blank" class="ticker-link">
+    <div class="ticker-wrapper">
+        <span class="ticker-item">● AVAILABLE ON APPLE MUSIC</span>
+    </div>
+</a>
+{% endblock %}

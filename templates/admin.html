@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — lwccia.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="admin-wrapper">
+
+        <div class="admin-header">
+            <h1>ADMIN</h1>
+            <a href="{{ url_for('admin_logout') }}" class="admin-logout">Déconnexion</a>
+        </div>
+
+        <section class="admin-form">
+            <h2>Ajouter une prod</h2>
+            <form method="POST">
+                <input type="text" name="titre" placeholder="Titre" class="admin-input" required>
+                <select name="genre" class="admin-input">
+                    <option value="Supertrap">Supertrap</option>
+                    <option value="Ambient">Ambient</option>
+                    <option value="Plugg">Plugg/Pluggnb</option>
+                    <option value="2Step">2Step</option>
+                    <option value="R&B">R&B</option>
+                    <option value="Bounce">Bounce</option>
+                    <option value="Trap">Trap</option>
+                </select>
+                <input type="number" name="bpm" placeholder="BPM" class="admin-input" required>
+                <input type="number" step="0.01" name="prix" placeholder="Prix (ex: 50.00)" class="admin-input" required>
+                <input type="text" name="fichier_audio" placeholder="Nom du fichier (ex: prod.mp3)" class="admin-input" required>
+                <button type="submit" class="admin-btn">Ajouter</button>
+            </form>
+        </section>
+
+        <section class="admin-list">
+            <h2>Prods en ligne ({{ prods|length }})</h2>
+            {% for prod in prods %}
+            <div class="admin-prod-item">
+                <div class="admin-prod-info">
+                    <span>{{ prod['titre'] }}</span>
+                    <span class="admin-meta">{{ prod['genre'] }} · {{ prod['bpm'] }} BPM · {{ prod['prix'] }}€</span>
+                </div>
+                <a href="{{ url_for('admin_delete', prod_id=prod['id']) }}"
+                   class="admin-delete"
+                   onclick="return confirm('Supprimer ?')">
+                    Supprimer
+                </a>
+            </div>
+            {% endfor %}
+        </section>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}Contact — lwccia.{% endblock %}
+
+{% block content %}
+
+<section class="contact-header">
+    <h2>CONTACT</h2>
+</section>
+
+<section class="contact-links">
+
+    <a href="https://www.instagram.com/lwccia__/" target="_blank" class="contact-item">
+        <img src="{{ url_for('static', filename='images/instagram.svg') }}"
+             alt="Instagram"
+             class="contact-icon">
+        <span class="contact-label">@lwccia__</span>
+    </a>
+
+    <a href="mailto:lwcciamusic@hotmail.com" class="contact-item">
+        <img src="{{ url_for('static', filename='images/mail.svg') }}"
+             alt="Mail"
+             class="contact-icon">
+        <span class="contact-label">lwcciamusic@hotmail.com</span>
+    </a>
+
+</section>
+
+{% endblock %}

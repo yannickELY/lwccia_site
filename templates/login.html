@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — lwccia.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="admin-login">
+        <h1>ADMIN</h1>
+        {% if error %}
+            <p class="admin-error">{{ error }}</p>
+        {% endif %}
+        <form method="POST">
+            <input type="password"
+                   name="password"
+                   placeholder="Mot de passe"
+                   class="admin-input"
+                   autofocus>
+            <button type="submit" class="admin-btn">Entrer</button>
+        </form>
+    </div>
+</body>
+</html>
