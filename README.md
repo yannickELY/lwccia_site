@@ -5,8 +5,8 @@ Features a beat catalog, latest releases, and direct contact.
 
 ## Preview
 
-![Home](image_url)
-![Beats](image_url)
+![Home](/assets/screenshot-home.png)
+![Contact](/assets/screenshot-contact.png)
 
 ---
 
@@ -27,4 +27,4 @@ Features a beat catalog, latest releases, and direct contact.
 
 ## Live
 
-[lwccia.](url_link)
+[lwccia.](https://lwcciasite-production.up.railway.app/)
