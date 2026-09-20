@@ -65,7 +65,7 @@
          data-bpm="{{ prod['bpm'] }}">
 
         <div class="prod-left">
-            <button class="play-btn" data-src="{{ url_for('static', filename='audio/' + prod['fichier_audio']) }}">
+            <button class="play-btn" data-src="{{ r2_url }}/{{ prod['fichier_audio'] }}">
                 ▶
             </button>
             <div class="prod-info">

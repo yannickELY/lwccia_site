@@ -12,6 +12,7 @@ DATABASE = "beatmaker.db"
 # Variables qui récupèrent les clés admin
 app.secret_key = os.environ.get("SECRET_KEY", "dev_secret_key")
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "local_password")
+R2_BASE_URL = os.environ.get("R2_BASE_URL", "https://pub-488e9edc41e84b88bc3090ea7c511424.r2.dev")
 
 # Instanciation de l'objet Limiter
 limiter = Limiter(
@@ -70,7 +71,7 @@ def prods():
     # Méthode fetchall permet de récupérer littéralement les prods
     # Affichage initial lorsque l'on arrive sur la page
     prods = db.execute("SELECT * FROM prods ORDER BY id DESC").fetchall()
-    return render_template("prods.html", prods=prods)
+    return render_template("prods.html", prods=prods, r2_url=R2_BASE_URL)
 
 
 @app.route("/videos")
